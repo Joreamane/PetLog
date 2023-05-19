@@ -30,7 +30,7 @@ class User:
         query = 'SELECT * FROM users WHERE email = %(email)s;'
         return connectToMySQL('pet_log').query_db(query,data)
     
-    @staticmethod:
+    @staticmethod
     def validate_registration(user):
         is_valid = True
         if not EMAIL_REGEX.match(user['email']):
