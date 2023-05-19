@@ -3,4 +3,4 @@ from flask import render_template, redirect, request, session, flash
 
 @app.route('/')
 def index():
-    return render_template('blank.html')
+    return render_template('login.html')
