@@ -50,3 +50,8 @@ def login():
     session['first_name'] = user_in_db.first_name
     session['last_name'] = user_in_db.last_name
     return redirect('/dashboard')
+
+@app.route('/logout', methods=['get', 'post'])
+def logout():
+    session.clear()
+    return redirect('/')
