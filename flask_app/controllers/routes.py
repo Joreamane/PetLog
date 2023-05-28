@@ -10,6 +10,14 @@ bcrypt = Bcrypt(app)
 def index():
     return render_template('login.html')
 
+@app.route('/dashboard')
+def dashboard():
+    if not session:
+        flash('Please log in first!', 'login')
+        return redirect('/')
+    data = {'id':session['user_id']}
+    return render_template('dashboard.html', user=User.get_user(data))
+
 @app.route('/register', methods=['post'])
 def register():
     pw_hash = bcrypt.generate_password_hash(request.form['regpassword'])
