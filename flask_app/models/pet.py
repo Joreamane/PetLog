@@ -34,3 +34,11 @@ class Pet:
             }
         user_pets.append(pet_data)
         return user_pets
+    
+    @classmethod
+    def get_one_pet(cls,data):
+        query = 'SELECT * FROM pets WHERE pets.id = %(id)s;'
+        result = connectToMySQL('pet_log').query_db(query,data)
+        return result
+    
+    
