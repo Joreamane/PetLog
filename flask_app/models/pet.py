@@ -32,7 +32,7 @@ class Pet:
                 'created_at': row['pets.created_at'],
                 'updated_at': row['pets.updated_at']
             }
-        user_pets.append(pet_data)
+            user_pets.append(pet_data)
         return user_pets
     
     @classmethod
@@ -40,5 +40,4 @@ class Pet:
         query = 'SELECT * FROM pets WHERE pets.id = %(id)s;'
         result = connectToMySQL('pet_log').query_db(query,data)
         return result
-    
     
