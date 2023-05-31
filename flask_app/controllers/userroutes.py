@@ -2,6 +2,8 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user import User
+from flask_app.models.pet import Pet
+
 
 import os
 bcrypt = Bcrypt(app)
@@ -13,10 +15,10 @@ def index():
 @app.route('/dashboard')
 def dashboard():
     if not session:
-        flash('Please log in first!', 'login')
+        flash('Please log in or register first!', 'login')
         return redirect('/')
     data = {'id':session['user_id']}
-    return render_template('dashboard.html', user=User.get_user(data))
+    return render_template('dashboard.html', user=User.get_user(data), pets=Pet.get_pets(data))
 
 @app.route('/register', methods=['post'])
 def register():

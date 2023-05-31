@@ -4,41 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min (1).css">
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg bg-light">
-        <a class="navbar-brand">Pet Log</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand">Pet Log</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+            </button>
 
-        <div class="collapse navbar-collapse" style="position: relative">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">New Event</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Logout</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0"">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">New Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </nav>
 
     <div class="container">
         <h1>Welcome, {{session['first_name']}}</h1>
         <h3>Who would you like to keep track of today?</h3>
+        {% if pets is defined %}
         
+        {% else %}
+        <div class="container">
+            <h3>You haven't told us about any of your friends yet!'</h3>
+            
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>
