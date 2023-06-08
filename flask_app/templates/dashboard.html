@@ -38,15 +38,33 @@
     </nav>
 
     <div class="container">
+        <br>
         <h1>Welcome, {{session['first_name']}}</h1>
+        <br>
         <h3>Who would you like to keep track of today?</h3>
-        {% if pets is defined %}
-        
+        {% if pets[0] is defined %}
+            {% for pet in pets %}
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">{{pet.type}}</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{pet.name}}</h4>
+                    {% if pet.type is Dog or pet.type is Cat%}
+                    <p class="card-text">See everything related to your fuzzy friend here!</p>
+                    {% elif pet.type is Reptile %}
+                    <p class="card-text">See everything related to your scaly friend here!</p>
+                    {% elif pet.type is Bird %}
+                    <p class="card-text">See everything related to your feathery friend here!</p>
+                    {% elif pet.type is Amphibian %} 
+                    <p class="card-text">See everything related to your slimy friend here!</p>
+                    {% endif %}
+                    <form action="/viewpet/{{pet.id}}" method="get">Go to {{pet.name}}'s page!</form>
+                </div>
+            </div>
+            {% endfor %}
         {% else %}
-        <div class="container">
-            <h3>You haven't told us about any of your friends yet!'</h3>
-            
-        </div>
+        <br>
+        <h3>You haven't told us about any of your friends yet!</h3>
+        <h5><a href="/newpet">Keep track of a new pet!</a></h5>
         {% endif %}
     </div>
 </body>
