@@ -38,8 +38,9 @@
     </nav>
     <div class="container">
         <div class="container">
+            <br>
             <h1>Welcome to Pet Log!</h1>
-            <h2>Log in or register to start tracking everything about your furry or scaly friends!</h2>
+            <h3>Log in or register to start tracking everything about your furry or scaly friends!</h3>
         </div>
         <div class="container" style="display: flex; justify-content:space-between; padding-top: 20px">
             <div class="container" style="padding:0; margin: 0; width:45%">
@@ -57,23 +58,23 @@
                 <form action="/register" method="post">
                     <div class="mb-3">
                         <label for="first_name" class="form-label">First Name</label>
-                        <input type="text" name="first_name" class="form-control" id="first_name">
+                        <input type="text" placeholder="First Name" name="first_name" class="form-control" id="first_name">
                     </div>
                     <div class="mb-3">
                         <label for="last_name" class="form-label">Last Name</label>
-                        <input type="text" name="last_name" class="form-control" id="last_name">
+                        <input type="text" placeholder="Last Name" name="last_name" class="form-control" id="last_name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" name="email"class="form-control" id="regemail">
+                        <input type="text" placeholder="Enter Email"name="email"class="form-control" id="regemail">
                     </div>
                     <div class="mb-3">
                         <label for="regpassword" class="form-label">Password</label>
-                        <input type="password" name="regpassword" class="form-control" id="regpassword">
+                        <input type="password" placeholder="Password" name="regpassword" class="form-control" id="regpassword">
                     </div>
                     <div class="mb-3">
                         <label for="confirm" class="form-label">Confirm Password</label>
-                        <input type="password" name="confirm" class="form-control" id="confirm">
+                        <input type="password" placeholder="Password" name="confirm" class="form-control" id="confirm">
                     </div>
                     <button type='submit' class="btn btn-primary">Register</button>
                 </form>
@@ -94,11 +95,11 @@
                 <form action="/login" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" name="email" class="form-control" id="email">
+                        <input type="text" placeholder="Enter Email" name="email" class="form-control" id="email">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="password">
+                        <input type="password" placeholder="Password" name="password" class="form-control" id="password">
                     </div>
                     <button type='submit' class="btn btn-primary">Login</button>
                 </form>
