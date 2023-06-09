@@ -8,13 +8,14 @@ class Pet:
         self.pet_name = data['pet_name']
         self.pet_type = data['pet_type']
         self.pet_breed = data['pet_breed']
+        self.image_path = data['image_path']
         self.user_id = session['user_id']
         #empty array for all logged events
         self.events = []
 
     @classmethod
     def add_pet(cls,data):
-        query = 'INSERT INTO pets (pet_name, pet_type, pet_breed, user_id, created_at, updated_at) VALUES (%(pet_name)s, %(pet_type)s, %(pet_breed)s, %(user_id)s, NOW(), NOW());'
+        query = 'INSERT INTO pets (pet_name, pet_type, pet_breed, image_path, user_id, created_at, updated_at) VALUES (%(pet_name)s, %(pet_type)s, %(pet_breed)s, %(image_path)s, %(user_id)s, NOW(), NOW());'
         return connectToMySQL('pet_log').query_db(query,data)
     
     @classmethod
@@ -28,6 +29,7 @@ class Pet:
                 'pet_name': row['pet_name'],
                 'pet_type': row['pet_type'],
                 'pet_breed': row['pet_breed'],
+                'image_path': row['image_path'],
                 'user_id': row['user_id'],
                 'created_at': row['pets.created_at'],
                 'updated_at': row['pets.updated_at']
