@@ -45,12 +45,12 @@ def login():
     if not user_in_db:
         flash('Email does not have an associated account.', 'login')
         return redirect('/')
-    if not bcrypt.check_password_hash(user_in_db.password, request.form['password']):
+    if not bcrypt.check_password_hash(user_in_db[0]['password'], request.form['password']):
         flash('Invalid email/password combination.', 'login')
         return redirect('/')
-    session['user_id'] = user_in_db.id
-    session['first_name'] = user_in_db.first_name
-    session['last_name'] = user_in_db.last_name
+    session['user_id'] = user_in_db[0]['id']
+    session['first_name'] = user_in_db[0]['first_name']
+    session['last_name'] = user_in_db[0]['last_name']
     return redirect('/dashboard')
 
 @app.route('/logout', methods=['get', 'post'])
