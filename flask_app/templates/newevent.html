@@ -36,5 +36,18 @@
             </div>
         </div>
     </nav>
+
+    <div class="container" style="width:45%">
+        <br>
+        <h1>What event would you like to log??</h1>
+        <form action="/newevent" method="post">
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" name="category" id="cateoryInput" class="form-control" placeholder="Category">
+                <!-- Need to figure out how to list previous Categories but also allow a new one within one the same input-->
+            </div>
+            <button type="submit" class="btn btn-primary">Add Event!</button>
+        </form>
+    </div>
 </body>
 </html>
